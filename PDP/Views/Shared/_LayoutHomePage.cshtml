@@ -1,0 +1,370 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>PDP</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/underscore.min.js"></script>
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/adminscripts")
+    <script src="~/Scripts/jqGrid/grid.locale-en.js"></script>
+    <script src="~/Scripts/jqGrid/jquery.jqGrid.min.js"></script>
+    <link href="~/Content/ui.jqgrid-bootstrap.css" rel="stylesheet" />
+    <link href="~/Scripts/jqGrid/css/ui.jqgrid-bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript">
+        function MM_swapImage() { }
+        function MM_swapImgRestore() { }
+    </script>
+    <link href="@Url.Content("~/Content/usdastyle.css")" rel="stylesheet" type="text/css" />
+    <style type="text/css" media="screen">
+        th.ui-th-column div {
+            white-space: normal !important;
+            height: auto !important;
+            padding: 2px;
+        }
+
+        .ui-jqgrid .ui-jqgrid-resize {
+            height: 100% !important;
+        }
+    </style>
+
+    <style>
+        table.HomePage
+        {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 10px;
+        }
+
+        th.HomePage
+        {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 1.3em;
+            height: 30px;
+            color: white!important;
+        }
+
+        td.HomePage
+        {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 1.1em;
+            height: 25px;
+        }
+
+        .bkgnd
+        {
+            background-color: #2A5B0B;
+            background-image: -webkit-linear-gradient(top,#2A5B0B,#fff);
+            background-image: linear-gradient(to bottom,#2A5B0B,#fff);
+            background-size: 100% 250%;
+            background-repeat: no-repeat;
+            background-color: #fff;
+            overflow: auto;
+            font-family: Verdana!important;
+        }
+
+        .navbar
+        {
+            background-color: #CDD860;
+            background-image: -webkit-linear-gradient(top,#CDD860,#9DA64A);
+            background-image: linear-gradient(to bottom,#CDD860,#9DA64A);
+            -webkit-transition: background-color 1s ease;
+            -moz-transition: background-color 1s ease;
+            transition: background-color 1s ease;
+            display: inline-block;
+            border-bottom-style: none!important;
+            border-bottom-left-radius: 0px!important;
+            border-bottom-right-radius: 0px!important;
+            margin-bottom: 0px!important;
+            border-top-left-radius: 10px!important;
+            border-top-right-radius: 10px!important;
+        }
+
+            .navbar li
+            {
+                display: inline-block;
+                /*margin: 0px 0px 0px -1px;*/
+                border: none;
+                border-bottom: none;
+                border-top: none;
+                /*width: 90px;*/
+                font-size: 1.1em;
+                font-weight: bold!important;
+                border-right-style: solid!important;
+                border-right-width: 1px!important;
+                border-right-color: #73791c!important;
+                height: 50px!important;
+            }
+
+                .navbar li a:link, a:visited, a
+                {
+                    color: #2A5B0B!important;
+                }
+
+        .navbar-nav > li:hover a
+        {
+            background-color: #404f32;
+            color: white!important;
+        }
+
+         .navbar-nav > li:hover
+        {
+            background-color: #404f32;
+            color: white!important;
+        }
+
+        .navbar-nav > li > h2 > a
+        {
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-family: Verdana!important;
+            color: inherit;
+        }
+
+        .astr
+        {
+            margin-left: -7px;
+        }
+
+        .hlist > ul
+        {
+            list-style-type: none!important;
+            padding: 2px;
+            width: 100%;
+            background-color: transparent;
+            position: relative;
+            overflow: auto;
+        }
+
+            .hlist > ul > li > a
+            {
+                display: block;
+                color: #1C75BC!important;
+                /*padding: 8px 0 8px 16px;*/
+                text-decoration: none;
+                text-align: left;
+                /*font-weight:bold;*/
+                /*font-size: 1.1em;*/
+            }
+
+                .hlist > ul > li > a.active
+                {
+                    background-color: green;
+                    color: white!important;
+                }
+
+                .hlist > ul > li > a:hover:not(.active)
+                {
+                    text-decoration: underline;
+                }
+
+        a.footer
+        {
+            color: white!important;
+            font-size: 13px!important;
+            font-weight: normal!important;
+            font-family: Verdana!important;
+            padding: 10px;
+        }
+
+        .HomePage > a
+        {
+            color: white!important;
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        a.printfv6
+        {
+            color: blue!important;
+        }
+
+        a.medtext
+        {
+            font-size: 15px!important;
+            font-weight: normal!important;
+        }
+
+        a.mednormal
+        {
+            font-size: 1.1em!important;
+            font-weight: normal!important;
+            font-family: Verdana!important;
+            line-height: 1.3em!important;
+        }
+
+        .hlist > ul > li
+        {
+            line-height: 1.3em!important;
+            margin-bottom: 0.5em!important;
+            font-size: 1.4em!important;
+            font-weight: normal!important;
+            font-family: Verdana!important;
+            line-height: 1.3em!important;
+            margin-left: 1.5em!important;
+            list-style: none;
+        }
+
+        body
+        {
+            font-family: Verdana!important;
+        }
+
+        #footerwide
+        {
+            padding: 15px;
+        }
+
+        .pagination-container
+        {
+            text-align: center!important;
+        }
+    </style>
+</head>
+
+<body class="bkgnd">
+    <div id="wrapper" class="container">
+        <header></header>
+        <div class="row">
+            <div class="col-lg-7">
+                <div id="pageHeader" style="height: 67px!important; width: 450px; transparent; background-image: url(../images/AMS-logo2.png)!important"  class="pageheader"></div>
+            </div>
+            <div class="col-lg-5" style="padding-top: 25px!important; text-align: right;">
+                <span style="font-size: 1em!important; margin-left: 1em!important; font-family: Verdana!important; color: white; font-weight: normal!important;"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar">
+                    <div class="container-fluid" style="padding-left: 0px; padding-right: 0px;">
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" style="padding-left: 0px; padding-right: 0px;" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav left">
+                                <li>
+                                    <h2><a class="medtext" href="../PDP/Filters">Home <span class="sr-only">(current)</span></a></h2>
+                                </li>
+                                <li>
+                                    <h2><a class="medtext" href="../PDP/About">About PDP</a></h2>@*http://www.ams.usda.gov/fv/moab.html*@
+                                </li>
+                                <li class="tab oid_co_tab oid_tab">
+                                    <h2><a class="mainlk" href="">Lookup Tables</a></h2>
+                                    @*<div class="submenu" style="width: 170px">
+                                        <ul>
+                                            <li><a href=''>Annotated Information code </a></li>
+                                            <li><a href=''>Claim on Product code</a></li>
+                                            <li><a href=''>Commodity code </a></li>
+                                            <li><a href=''>Commodity/Package Type code</a></li>
+                                            <li><a href=''>Concentration/LOD Units code</a></li>
+                                            <li><a href=''>Confirmation Method code</a></li>
+                                            <li><a href=''>Country of Origin code</a></li>
+                                            <li><a href=''>Determinative Method code</a></li>
+                                            <li><a href=''>Distribution Facility Type code</a></li>
+                                            <li><a href=''>Extraction Method code</a></li>
+                                            <li><a href=''>Laboratory code</a></li>
+                                            <li><a href=''>Mean Result code</a></li>
+                                            <li><a href=''>Origin code</a></li>
+                                            <li><a href=''>Pesticide code</a></li>
+                                            <li><a href=''>Quantitation Method code</a></li>
+                                            <li><a href=''>State code</a></li>
+                                            <li><a href=''>Test Class code</a></li>
+                                            <li><a href=''>Tolerance levels</a></li>
+                                        </ul>
+                                        <div class="clear"></div>
+                                    </div>*@
+
+                                </li>
+                                <li>
+                                    <h2><a class="medtext" href="../PDP/Help" >Help</a></h2>
+                                </li>
+                                <li>
+                                    <h2><a class="medtext" href="../PDP/ContactUS" >Contact Us</a></h2>
+                                </li>
+                                <li style="border-right-style: none!important; border-right-width: 0px!important; border-right-color: none!important;">
+                                    <h2><a class="medtext" href=""></a></h2>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div id="body" style="width: 100%;">
+                    <section class="content-wrapper main-content clear-fix">
+
+                        @*<table style="height: 46px; border-collapse: collapse; width: 100%; border-spacing: 0px 0px;">
+                            <tbody>
+                                <tr style="background-color: #404f32; height: 40px;">
+                                    <td style="width: 1px;">&nbsp</td>
+                                    <td style="height: 5px;">
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td style="text-align: left">*@
+                                                    @*<span style="font-size: 0.75em!important; margin-left: 1em!important; font-family: verdana; color: white; font-weight: bold!important;">Home->PDP Database Search</span>*@
+                                                    @*<span style="font-weight: bold; font-size: 1em; color: white; font-family: pt_sansregular,Helvetica,Arial,Verdana,sans-serif; color: white;">  </span>*@
+                                                @*</td>
+                                                <td style="text-align: right; ">
+                                                    @RenderSection("search", false)
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>*@
+                        <div class="row">
+                             <div ng-app="app">
+                                @RenderBody()
+                                <hr />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div style="font-size: 13px;">
+                                    <div id="footerwide" style="background-color: #224909; background-image: none; color: white;">
+                                        <p align="center" style="color: white;">
+                                            <a class="footer" href="http://www.usda.gov/wps/portal/!ut/p/_s.7_0_A/7_0_1OB?navtype=FT&amp;navid=SITE_MAP" target="_blank">USDA.Gov</a>
+                                            | <a class="footer" href="http://www.ams.usda.gov" target="_blank">AMS</a>
+                                            <br />
+
+                                            <a class="footer" href="http://www.usda.gov/wps/portal/!ut/p/_s.7_0_A/7_0_1OB?navtype=FT&amp;navid=ACCESSIBILITY_STATEM" target="_blank">Accessibility Statement</a>
+                                            | <a class="footer" href="http://www.usda.gov/wps/portal/!ut/p/_s.7_0_A/7_0_1OB?navtype=FT&amp;navid=PRIVACY_POLICY" target="_blank">Privacy Policy</a>
+                                            | <a class="footer" href="http://www.usda.gov/wps/portal/!ut/p/_s.7_0_A/7_0_1OB?navtype=FT&amp;navid=NON_DISCRIMINATION" target="_blank">Non-Discrimination Statement</a>
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+

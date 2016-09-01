@@ -1,0 +1,283 @@
+﻿@model PDP.Models.FilterSettingsModel
+
+
+@section head{
+    <link rel="stylesheet" href="../Content/font-awesome.min.css" />
+    <link rel="styleSheet" href="../Content/ui-grid.min.css" />
+    @*<script src="../Scripts/angular.min.js"></script>*@
+    @*<script src="../Scripts/ui-grid.min.js"></script>*@
+}
+<style>
+    .grid {
+        width: 100%;
+        height: 530px;
+    }
+
+    .tbl-header h2 {
+        margin: 3px;
+    }
+
+    .tbl-header label {
+        margin-top: 5px;
+    }
+</style>
+
+<div class="container body-content WhiteBackgroundColor"
+     ng-controller="app.search.SearchController as sc">
+
+    <div ng-show="sc.showSearchPanel">
+        <div ng-show="sc.showLoading">
+            <i class="fa fa-refresh fa-spin fa-2x fa-fw centered"></i><span>Loading...</span>
+        </div>
+        <div class="row">
+            <h2 class="section-title" style="padding-bottom:12px;">PDP Database Search</h2>
+            <div class="col-lg-4 text-right">
+                <label ng-hide="!loading" class="text-info">
+                    <i class="fa fa-refresh fa-spin fa-2x fa-fw"></i><span>Loading...</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="center-block">
+            <div class="col-sm-3">
+                <div>
+                    <input type="checkbox"
+                           value="Check All Commodities"
+                           ng-model="sc.checkAllCommodities"
+                           ng-change="sc.allCommoditiesChange()"
+                           ng-checked="sc.checkAllCommodities" /> Check All Commodities
+                    <br />
+                    <br />
+                    <div class="scrollable">
+                        <div ng-repeat="commo in sc.commodities">
+                            <input type="checkbox"
+                                   value="{{commo.commodityName}}"
+                                   ng-model="commo.isChecked"
+                                   ng-checked="commo.isChecked" /> {{commo.commodityName}}
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <input type="checkbox"
+                       value="Check All Pesticides"
+                       ng-change="sc.allPesticidesChange()"
+                       ng-model="sc.checkAllPesticides"
+                       ng-checked="sc.checkAllPesticides" /> Check All Pesticides
+                <br />
+                <br />
+                <div class="scrollable"
+                     ng-disabled="sc.checkSpecificTestClass">
+                    <div ng-repeat="pesticide in sc.pesticides">
+                        <input type="checkbox"
+                               value="{{pesticide.pesticideName}}"
+                               ng-model="pesticide.isChecked"
+                               ng-checked="pesticide.isChecked" /> {{pesticide.pesticideName}}
+                        <br />
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="col-sm-3">
+                    <input type="checkbox"
+                           value="Check Specific Test Class"
+                           ng-change="sc.specificClassChange()"
+                           ng-model="sc.checkSpecificTestClass"
+                           ng-checked="sc.checkSpecificTestClass" /> Check Specific Test Class
+                    <br />
+                    <br />
+                    <div class="scrollable"
+                         ng-disabled="!sc.checkSpecificTestClass">
+                        <div ng-repeat="testClass in sc.testClasses">
+                            <input type="checkbox"
+                                   value="{{testClass.description}}"
+                                   ng-model="testClass.isChecked"
+                                   ng-checked="testClass.isChecked" /> {{testClass.description}}
+                            <br />
+                        </div>
+                    </div>
+                </div>*@
+
+            <div class="col-sm-2">
+                <div>
+                    <input type="checkbox"
+                           value="Check All Years"
+                           ng-model="sc.checkAllYears"
+                           ng-change="sc.allYearsChange()"
+                           ng-checked="sc.checkAllYears" /> Check All years
+                    <br />
+                    <br />
+                    <div class="scrollable">
+                        <div ng-repeat="commo in sc.years">
+                            <input type="checkbox"
+                                   value="{{commo.yearName}}"
+                                   ng-model="commo.isChecked"
+                                   ng-checked="commo.isChecked" /> {{commo.yearName}}
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="control-label">Output Preference</label>
+                    <div>
+                        <select class="form-control"
+                                ng-options="pref.preference for pref in sc.outputPreferences"
+                                ng-model="sc.selectedOutputPreference"></select>
+                    </div>
+                </div>
+                <div class="form-group"
+                     ng-show="sc.selectedOutputPreference.id < 3">
+                    <label class="control-label">Results Preference</label>
+                    <div>
+                        <select class="form-control"
+                                ng-options="pref.preference for pref in sc.resultsPreferences"
+                                ng-model="sc.selectedResultsPreference"></select>
+                    </div>
+                </div>
+
+
+                @*<div class="form-group">
+                        <label class="control-label">Calendar Year</label>
+                        <div>
+                            <select class="form-control"
+                                    ng-options="pref.preference for pref in sc.yearPreferences"
+                                    ng-model="sc.selectedYearPreference"></select>
+                        </div>
+                    </div>*@
+
+
+
+                <input type="button"
+                       class="btn btn-primary pointer"
+                       ng-click="sc.search()"
+                       value="Search" />
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="sc.showResultsPanel">
+        @*<div>
+                <ion-nav-buttons side="secondary">
+                    <a class="button icon-right ion-plus-round" href="#">Back To Search</a>
+                </ion-nav-buttons>
+            </div>*@
+        @*<div>
+                <a class="medtext" href="../PDP/Filters">Back To Search <span class="sr-only">(current)</span></a>
+            </div>*@
+        <div ng-show="sc.selectedOutputPreference.id == 1">
+            <div ng-include="'analyticalResultsTemplate'">
+            </div>
+        </div>
+        <div ng-show="sc.selectedOutputPreference.id == 2">
+            <div ng-include="'sampleResultsTemplate'">
+            </div>
+        </div>
+        <div ng-show="sc.selectedOutputPreference.id == 3">
+            <div ng-include="'summaryOfNdTemplate'">
+            </div>
+        </div>
+        <div ng-show="sc.selectedOutputPreference.id == 4">
+            <div ng-include="'summaryOfFindingsTemplate'">
+            </div>
+        </div>
+        <div ng-show="sc.selectedOutputPreference.id == 5">
+            <div ng-include="'summaryOfFindingsByLodTemplate'">
+            </div>
+        </div>
+        <div ng-show="sc.selectedOutputPreference.id == 6">
+            <div ng-include="'summaryOfFindingsByCountryTemplate'">
+            </div>
+        </div>   
+        <div ng-show="sc.selectedOutputPreference.id == 7">
+            <div ng-include="'summaryOfFindingsByClaimTemplate'">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="analyticalResultsTemplate">
+    <div class="container">
+        <div class="col-lg-4 text-right">
+            @*<label ng-hide="!loading" class="text-info">*@
+            @*<div class="loading">
+                <i class="fa fa-refresh fa-spin fa-2x fa-fw"></i><span>Loading...</span>
+            </div>*@
+                @*</label>*@
+        </div>
+        <div class="row">
+            <table id="analyticalResultsGrid"></table>
+            <div id="analyticalResultsGridPager"></div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="sampleResultsTemplate">
+   <div class="container">
+        @*<div class="row">
+            <table id="sampleResultsGrid"></table>
+            <div id="sampleResultsGridPager"></div>
+        </div>*@
+        
+        @*<div ng-controller="MainCtrl">*@
+       @*<div class="row tbl-header">
+        <div class="col-lg-4 lg"><h2>Pdp Results</h2></div>
+        <div class="col-lg-4 text-info">{{msg}}</div>
+        <div class="col-lg-4 text-right">
+            <label ng-hide="!loading" class="text-info">
+                <i class="fa fa-refresh fa-spin fa-2x fa-fw"></i><span>Loading...</span>
+            </label>
+        </div>
+        </div>*@
+        <div class="row">
+                <div id="grid1" ui-grid="gridResul" class="grid" ui-grid-resize-columns ui-grid-pagination ui-grid-selection ui-grid-edit ui-grid-exporter></div>
+        </div>
+    @*</div>*@
+
+   </div>
+</script>
+<script type="text/ng-template" id="summaryOfNdTemplate">
+    <div class="container">
+        <div class="row">
+            <table id="summaryOfNdGrid"></table>
+            <div id="summaryOfNdGridPager"></div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="summaryOfFindingsTemplate">
+    <div class="container">
+        <div class="row">
+            <table id="summaryOfFindingsGrid"></table>
+            <div id="summaryOfFindingsGridPager"></div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="summaryOfFindingsByLodTemplate">
+    <div class="container">
+        <div class="row">
+            <table id="summaryOfFindingsByLodGrid"></table>
+            <div id="summaryOfFindingsByLodGridPager"></div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="summaryOfFindingsByCountryTemplate">
+    <div class="container">
+        <div class="row">
+            <table id="summaryOfFindingsByCountryGrid"></table>
+            <div id="summaryOfFindingsByCountryGridPager"></div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="summaryOfFindingsByClaimTemplate">
+    <div class="container">
+        <div class="row">
+            <table id="summaryOfFindingsByClaimGrid"></table>
+            <div id="summaryOfFindingsByClaimGridPager"></div>
+        </div>
+    </div>
+</script>
+
+

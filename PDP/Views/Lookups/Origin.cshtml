@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Origin code";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section head{
+    <link rel="stylesheet" href="../Content/font-awesome.min.css" />
+    <link rel="styleSheet" href="../Content/ui-grid.min.css" />
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/ui-grid.min.js"></script>
+}
+<style>
+    .grid {
+        width: 100%;
+        height: 530px;
+    }
+
+    .tbl-header h2 {
+        margin: 3px;
+    }
+
+    .tbl-header label {
+        margin-top: 5px;
+    }
+</style>
+<div> @*  ng-app="apporigin" *@
+    <div ng-controller="MainCtrl">
+        <div class="row tbl-header">
+            <<br />
+            <h2 class="section-title" style="padding-bottom:12px;">Origin code</h2>
+            <div class="col-lg-4 text-info">{{msg}}</div>
+            <div class="col-lg-4 text-right">
+                <label ng-hide="!loading" class="text-info">
+                    <i class="fa fa-refresh fa-spin fa-2x fa-fw"></i><span>Loading...</span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div id="grid1" ui-grid="gridOrigin" class="grid" ui-grid-resize-columns ui-grid-pagination ui-grid-selection ui-grid-edit ui-grid-exporter></div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="../Scripts/app-origin.js"></script>
+}
+
+
+
+
+
+
+
+
+
+

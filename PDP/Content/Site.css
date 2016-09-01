@@ -1,0 +1,43 @@
+﻿html {
+    height: 100%;
+}
+
+body {
+    padding-top: 50px;
+    height: 100%;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.main-header {
+    background-color: lightgray;
+    height: 50px;
+    font-family: 'Times New Roman', Times, serif;
+	color: red;
+	font-size:30px;
+    text-align:center;
+    
+}
+
+.scrollable {
+    bottom: 1;
+    left: 1;
+    padding: 1;
+    top: 1;
+    /*overflow-x: scroll;*/
+    overflow-y: scroll;
+    height:375px;
+    border:thin;
+}

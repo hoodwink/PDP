@@ -1,0 +1,517 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDP</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @*<script src="../Scripts/angular.min.js"></script>*@
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/underscore.min.js"></script>
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/adminscripts")
+    <script src="../Scripts/ui-grid.min.js"></script>
+    <script src="~/Scripts/pdfmake/pdfmake.min.js"></script>
+    <script src="~/Scripts/pdfmake/vfs_fonts.js"></script>
+    <script src="~/Scripts/jqGrid/grid.locale-en.js"></script>
+    <script src="~/Scripts/jqGrid/jquery.jqGrid.min.js"></script>
+    <link href="~/Content/ui.jqgrid-bootstrap.css" rel="stylesheet" />
+    <link href="~/Scripts/jqGrid/css/ui.jqgrid-bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript">
+        function MM_swapImage() { }
+        function MM_swapImgRestore() { }
+    </script>
+    <link href="@Url.Content("~/Content/PDP.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/usdastyle.css")" rel="stylesheet" type="text/css" />
+    <style type="text/css" media="screen">
+        th.ui-th-column div {
+            white-space: normal !important;
+            height: auto !important;
+            padding: 2px;
+        }
+
+        .ui-jqgrid .ui-jqgrid-resize {
+            height: 100% !important;
+        }
+    </style>
+
+    <style>
+        table.HomePage {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 10px;
+        }
+
+        th.HomePage {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 1.3em;
+            height: 30px;
+            color: white !important;
+        }
+
+        td.HomePage {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 1.1em;
+            height: 25px;
+        }
+
+        .bkgnd {
+            background-color: #2A5B0B;
+            background-image: -webkit-linear-gradient(top,#2A5B0B,#fff);
+            background-image: linear-gradient(to bottom,#2A5B0B,#fff);
+            background-size: 100% 250%;
+            background-repeat: no-repeat;
+            background-color: #fff;
+            overflow: auto;
+            font-family: Verdana !important;
+        }
+
+        .navbar {
+            background-color: #CDD860;
+            background-image: -webkit-linear-gradient(top,#CDD860,#9DA64A);
+            background-image: linear-gradient(to bottom,#CDD860,#9DA64A);
+            -webkit-transition: background-color 1s ease;
+            -moz-transition: background-color 1s ease;
+            transition: background-color 1s ease;
+            display: inline-block;
+            border-bottom-style: none !important;
+            border-bottom-left-radius: 0px !important;
+            border-bottom-right-radius: 0px !important;
+            margin-bottom: 0px !important;
+            border-top-left-radius: 10px !important;
+            border-top-right-radius: 10px !important;
+        }
+
+            .navbar li {
+                display: inline-block;
+                /*margin: 0px 0px 0px -1px;*/
+                border: none;
+                border-bottom: none;
+                border-top: none;
+                /*width: 90px;*/
+                font-size: 1.1em;
+                font-weight: bold !important;
+                border-right-style: solid !important;
+                border-right-width: 1px !important;
+                border-right-color: #73791c !important;
+                height: 50px !important;
+            }
+
+                .navbar li a:link, a:visited, a {
+                    color: #2A5B0B !important;
+                }
+
+        .navbar-nav > li:hover a {
+            background-color: #404f32;
+            color: white !important;
+        }
+
+        .navbar-nav > li:hover {
+            background-color: #404f32;
+            color: white !important;
+        }
+
+        .navbar-nav > li > h2 > a {
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-family: Verdana !important;
+            color: inherit;
+        }
+
+        .astr {
+            margin-left: -7px;
+        }
+
+        .hlist > ul {
+            list-style-type: none !important;
+            padding: 2px;
+            width: 100%;
+            background-color: transparent;
+            position: relative;
+            overflow: auto;
+        }
+
+            .hlist > ul > li > a {
+                display: block;
+                color: #1C75BC !important;
+                /*padding: 8px 0 8px 16px;*/
+                text-decoration: none;
+                text-align: left;
+                /*font-weight:bold;*/
+                /*font-size: 1.1em;*/
+            }
+
+                .hlist > ul > li > a.active {
+                    background-color: green;
+                    color: white !important;
+                }
+
+                .hlist > ul > li > a:hover:not(.active) {
+                    text-decoration: underline;
+                }
+
+        a.footer {
+            color: white !important;
+            font-size: 13px !important;
+            font-weight: normal !important;
+            font-family: Verdana !important;
+            padding: 10px;
+        }
+
+        .HomePage > a {
+            color: white !important;
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        a.printfv6 {
+            color: blue !important;
+        }
+
+        a.medtext {
+            font-size: 15px !important;
+            font-weight: normal !important;
+        }
+
+        a.mednormal {
+            font-size: 1.1em !important;
+            font-weight: normal !important;
+            font-family: Verdana !important;
+            line-height: 1.3em !important;
+        }
+
+        .hlist > ul > li {
+            line-height: 1.3em !important;
+            margin-bottom: 0.5em !important;
+            font-size: 1.4em !important;
+            font-weight: normal !important;
+            font-family: Verdana !important;
+            line-height: 1.3em !important;
+            margin-left: 1.5em !important;
+            list-style: none;
+        }
+
+        body {
+            font-family: Verdana !important;
+        }
+
+        #footerwide {
+            padding: 15px;
+        }
+
+        .pagination-container {
+            text-align: center !important;
+        }
+    </style>
+
+    @RenderSection("head",false)
+</head>
+<body>
+    <div id="wrapper" class="container">
+        <header></header>
+        <div align="center" class="arraheaderfile">
+            <table id="tblLt" runat="server" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" runat="server" style="table-layout:fixed">
+                <tbody>
+                    <tr>
+                        <td width="100%" align="center" valign="top">
+                            <a name="wpsMainContent"></a>
+                            <div>
+                                <title>PDP</title>
+                                <table class="layoutColumn" cellpadding="0" cellspacing="0" style="width:100%;">
+
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:100%;" valign="top">
+                                                <table class="layoutRow" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <a name="Z7_P8MVVLT318PM80IUGT389F1041"></a>
+                                                                <div align="left">
+                                                                    <span>
+
+                                                                        <div id="gray"></div>
+                                                                        <div id="HeaderWrapper">
+                                                                            <div id="header30_left">
+                                                                                <div id="USDAHeaderLogo">
+                                                                                    <a name="top"></a>
+                                                                                    @*<img alt="USDA Logo" src='<%= ResolveUrl("~/images/logo.png")%>' width="449" height="77" border="0" usemap="#Map" />*@
+                                                                                    <div id="pageHeader" style="height: 67px!important; width: 450px; transparent; background-image: url(../images/AMS-logo2.png)!important" class="pageheader"></div>
+                                                                                    @*<map name="Map" id="Map">
+                                                            <area shape="rect" coords="0,0,105,77" href="http://usda.gov" alt="USDA" />
+                                                            <area shape="rect" coords="105,0,449,77" href="http://www.ams.usda.gov" alt="USDA AMS" />
+                                                        </map>*@
+                                                                                </div>
+                                                                                @*<div style="height: 77px!important;"></div>*@
+                                                                                @*<div class="col-lg-5" style="padding-top: .001px!important; text-align: right;">
+                                                        <span style="font-size: 1em!important; margin-left: 1em!important; font-family: Verdana!important; color: white; font-weight: normal!important;"></span>
+                                                    </div>*@
+                                                                                <div class="clear"></div>
+                                                                                <!-- top navigation -->
+                                                                                @*<a name="topOfPage"></a>*@
+                                                                                <div id="topnav">
+                                                                                    <ul>
+                                                                                        <li class="tab" id="usda_topnav_left"><a class="mainlk">&nbsp;</a></li>
+
+                                                                                        <li class="tab" id="usda_topics">
+                                                                                            <a class="mainlk" href='../PDP/Filters' style="cursor:pointer;width:80px">Home</a>
+
+                                                                                        </li>
+
+                                                                                        <li class="pxspace"><img src='<%= ResolveUrl("~/Resources/Images/spacer.gif")%>' alt="" height="2" width="1" /></li>
+
+                                                                                        <li class="tab oid_co_tab oid_tab">
+                                                                                            <a class="mainlk" href='../PDP/About' style="cursor:pointer;width:100px">About PDP</a>
+                                                                                            @*<div class="submenu" style="width: 170px">
+                                                                    <ul>
+                                                                        <li><a href='<%= ResolveUrl("~/Search.aspx")%>'>Operations Advanced Search</a></li>
+                                                                        <li><a href='<%= ResolveUrl("../Certifiers/CertifiersLocationsSearchPage.aspx")%>'>Certifier Locator</a></li>
+                                                                    </ul>
+                                                                    <div class="clear"></div>
+                                                                </div>*@
+                                                                                        </li>
+                                                                                        <li class="pxspace"><img src='<%= ResolveUrl("~/Resources/Images/spacer.gif")%>' alt="" height="2" width="1" /></li>
+                                                                                        <li class="tab oid_co_tab oid_tab">
+                                                                                            <a class="mainlk" href='../Lookups/CommodityHist' style="cursor:pointer;width:150px">Commodity History</a>
+                                                                                        </li>
+                                                                                        <li class="pxspace"><img src='<%= ResolveUrl("~/Resources/Images/spacer.gif")%>' alt="" height="2" width="1" /></li>
+                                                                                       
+                                                                                        <li class="tab oid_co_tab oid_tab">
+                                                                                            <a class="mainlk" href='../Lookups/PesticideHist' style="cursor:pointer;width:150px">Pesticide History</a>
+                                                                                        </li>
+                                                                                        <li class="pxspace"><img src='<%= ResolveUrl("~/Resources/Images/spacer.gif")%>' alt="" height="2" width="1" /></li><li class="tab oid_co_tab oid_tab">
+                                                                                            <a class="mainlk" href='' style="width:125px">Lookup Tables</a>
+                                                                                            <div class="submenu" style="width: 250px">
+                                                                                                <ul>
+                                                                                                    <li><a href='../Lookups/Annotated'>Annotated Information code</a></li>
+                                                                                                    <li><a href='../Lookups/Claim'>Claim on Product code</a></li>
+                                                                                                    <li><a href='../Lookups/Commodity'>Commodity code</a></li>
+                                                                                                    <li><a href='../Lookups/CommodityType'>Commodity/Package Type code</a></li>
+                                                                                                    <li><a href='../Lookups/ConUnit'>Concentration/LOD Units code</a></li>
+                                                                                                    <li><a href='../Lookups/ConfMethod'>Confirmation Method code</a></li>
+                                                                                                    <li><a href='../Lookups/Country'>Country of Origin code</a></li>
+                                                                                                    <li><a href='../Lookups/Determin'>Determinative Method code</a></li>
+                                                                                                    <li><a href='../Lookups/DistType'>Distribution Facility Type code</a></li>
+                                                                                                    <li><a href='../Lookups/Extract'>Extraction Method code</a></li>
+                                                                                                    <li><a href='../Lookups/Lab'>Laboratory code</a></li>
+                                                                                                    <li><a href='../Lookups/Mean'>Mean Result code</a></li>
+                                                                                                    <li><a href='../Lookups/Origin'>Origin code</a></li>
+                                                                                                    <li><a href='../Lookups/Pesticide'>Pesticide code</a></li>
+                                                                                                    <li><a href='../Lookups/Quantitation'>Quantitation Method code</a></li>
+                                                                                                    <li><a href='../Lookups/State'>State code</a></li>
+                                                                                                    <li><a href='../Lookups/TestClass'>Test Class code</a></li>
+                                                                                                    <li><a href='../Lookups/Tolerance'>Tolerance levels</a></li>
+                                                                                                </ul>
+                                                                                                <div class="clear"></div>
+                                                                                            </div>
+                                                                                        </li>
+                                                                                        <li class="pxspace" runat="server" id="tabCOSep"><img src='<%= ResolveUrl("~/Resources/Images/spacer.gif")%>' alt="" height="2" width="1" /></li>
+                                                                                        <li class="tab oid_co_tab oid_tab">
+                                                                                            <a class="mainlk" href='../PDP/Help' style="cursor:pointer;width:70px">Help</a>
+                                                                                            @*<div class="submenu" style="width: 170px">
+                                                                    <ul>
+                                                                        <li><a href='<%= ResolveUrl("~/Reports/Reports.aspx")%>'>Certified Operation Counts</a></li>
+                                                                        <li><a href='<%= ResolveUrl("~/Reports/DataHistory.aspx")%>'>Data History</a></li>
+                                                                    </ul>
+                                                                    <div class="clear"></div>
+                                                                </div>*@
+                                                                                        </li>
+                                                                                        <li class="pxspace" runat="server" id="tabCOSep"><img src='<%= ResolveUrl("~/Resources/Images/spacer.gif")%>' alt="" height="2" width="1" /></li>
+
+                                                                                        <li class="tab oid_co_tab oid_tab" runat="server" id="tabCO">
+                                                                                            <a class="mainlk" href='../PDP/ContactUS' style="cursor:pointer;width:90px">Contact Us</a>
+                                                                                            @*<asp:HyperLink runat="server" id="lnkOps" CssClass="mainlk" NavigateUrl="~/CertfierProfiles/CertfierProfilesPage.aspx" style="cursor:pointer;width:80px" Text="Operations"></asp:HyperLink>*@
+                                                                                            @*<div class="submenu" style="width: 250px">
+                                                                    <ul runat="server" id="ul1" EnableViewState="false">
+                                                                        <li id="pubOperationsHeader" runat="server"><h2>PUBLISHED OPERATIONS</h2></li>
+                                                                        <li id="operationsHeader" runat="server" visible="false"><h2>OPERATIONS</h2></li>
+                                                                        <li id="lnkSelectCert" style="margin: -10px 0px 0px 0px;" runat="server"><a id="A1" href='<%= ResolveUrl("~/CertfierProfiles/CertfierProfilesPage.aspx")%>'>Select a Certifier</a></li>
+                                                                        <li runat="server" id="liMyOps" EnableViewState="false" visible="false">
+                                                                            <asp:HyperLink runat="server" id="lnkMyOps" NavigateUrl="#" Text="View My Operations"> </asp:HyperLink>
+                                                                        </li>
+                                                                        <li runat="server" id="liMyPubs" EnableViewState="false" visible="false">
+                                                                            <asp:HyperLink runat="server" id="lnkMyPubs" NavigateUrl="#" Text="View My Data History"></asp:HyperLink>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <ul runat="server" id="ulReinsatment" enableviewstate="false" visible="false">
+                                                                        <li id="ReinstatementHeader" runat="server"><h2>REINSTATEMENT</h2></li>
+                                                                        <li id="LiReinstatementPage" style="margin: -10px 0px 0px 0px;" runat="server"><a id="A3" href='<%= ResolveUrl("~/CertfierProfiles/Reinstatement/Reinstatement.aspx")%>'>Reinstatement</a></li>
+                                                                    </ul>
+                                                                    <ul runat="server" id="ulSA" EnableViewState="false" visible="false">
+                                                                        <li><h2>STAGING AREA</h2></li>
+                                                                        <li style="margin: -10px 0px 0px 0px;"><asp:HyperLink runat="server" id="lnkSA" NavigateUrl="#" Text="Open Staging Area"></asp:HyperLink></li>
+                                                                        <li runat="server" id="liUF" EnableViewState="false" visible="false">
+                                                                            <asp:HyperLink runat="server" id="lnkUpload" NavigateUrl="#" Text="Upload a File..."></asp:HyperLink>
+                                                                        </li>
+
+                                                                    </ul>
+                                                                    <div class="clear"></div>
+                                                                </div>*@
+
+
+
+                                                                                        </li>
+
+                                                                                        @*<li class="pxspace"><img src='<%= ResolveUrl("~/Resources/Images/spacer.gif")%>' alt="" height="2" width="1" /></li>*@
+
+
+                                                                                        @*<li class="tab oid_admin_tab oid_tab" runat="server" id="tabAdmin">
+                                                                <a class="mainlk" href="#">Administration</a>
+                                                                <div class="submenu" style="width: 250px">
+                                                                    <ul runat="server" id="ulUM" EnableViewState="false" visible="false">
+                                                                        <li runat="server" id="liUserProfiles" EnableViewState="false" visible="false"><a id="lnkUserProfiles" href='<%= ResolveUrl("~/UserManagement/UserProfilesPage.aspx")%>'>User Accounts</a></li>
+                                                                        <li runat="server" id="liRegRequests" EnableViewState="false" visible="false"><a id="lnkRegRequests" href='<%= ResolveUrl("~/UserManagement/RegistrationRequestsPage.aspx")%>'>Registration Requests</a></li>
+                                                                        <li runat="server" id="liCertifierProfile" EnableViewState="false" visible="false">
+                                                                            <a id="A2"
+                                                                               href='<%= ResolveUrl("~/CertfierProfiles/CertifierProfilePage.aspx")%>'>Certifier Profile</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <ul runat="server" id="ulCA" EnableViewState="false" visible="false">
+                                                                        <li><h2>CERTIFYING AGENTS</h2></li>
+                                                                        <li runat="server" id="liMyCA" EnableViewState="false" style="margin: -10px 0px 0px 0px;" visible="false"><a id="lnkMyCA" href='<%= ResolveUrl("~/UserManagement/RegistrationRequestsPage.aspx")%>'>My Certifying Agent</a></li>
+                                                                        <li runat="server" id="liCAs" EnableViewState="false" style="margin: -10px 0px 0px 0px;" visible="false"><a id="lnkCAs" href='<%= ResolveUrl("~/UserManagement/RegistrationRequestsPage.aspx")%>'>Certifying Agents</a></li>
+                                                                    </ul>
+                                                                    <ul runat="server" id="ulSC" EnableViewState="false" visible="false">
+                                                                        <li><h2>SYSTEM CONFIGURATION</h2></li>
+                                                                        <li runat="server" id="liMT" EnableViewState="false" visible="false" style="margin: -10px 0px 0px 0px;"><a id="lnkTx" href='<%= ResolveUrl("~/UserManagement/RegistrationRequestsPage.aspx")%>'>NOP Master Taxonomy</a></li>
+                                                                    </ul>
+                                                                    <ul runat="server" id="ulLogs" EnableViewState="false" visible="false">
+                                                                        <li><h2>LOGS AND AUDIT</h2></li>
+                                                                        <li runat="server" id="liLog" EnableViewState="false" visible="false" style="margin: -10px 0px 0px 0px;"><a id="lnkUL" href='<%= ResolveUrl("~/UserManagement/RegistrationRequestsPage.aspx")%>'>User Logins</a></li>
+                                                                    </ul>
+                                                                    <div class="clear"></div>
+                                                                </div>
+                                                            </li>*@
+
+                                                                                        @*<li class="pxspace" runat="server" id="tabAdminSep"><img src='<%= ResolveUrl("~/Resources/Images/spacer.gif")%>' alt="" height="2" width="1" /></li>*@
+
+
+                                                                                        <li class="tab" id="usda_topnav_right"><a class="mainlk">&nbsp;</a></li>
+                                                                                    </ul>
+
+                                                                                </div>
+                                                                                <!-- top nav end -->
+
+                                                                            </div>
+                                                                            <!-- header30_left end -->
+
+                                                                            <div id="header30_right">
+
+                                                                                <div id="USDATopHeader">
+                                                                                    <ul>
+                                                                                        <li><asp:HyperLink runat="server" ID="lnkContactUs" NavigateUrl="~/ContactUs.aspx" Text="Contact Us"></asp:HyperLink></li>
+                                                                                        <li><asp:HyperLink runat="server" ID="lnkAbout" NavigateUrl="~/About.aspx" Text="About"></asp:HyperLink></li>
+                                                                                        <li><asp:HyperLink runat="server" ID="lnkUserRes" Visible="false" NavigateUrl="~/ReferenceDocs/DocumentsPage.aspx" Text="User Resources"></asp:HyperLink></li>
+                                                                                        <li style="display:none"><a title="Help" href="#">Help</a></li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div id="t1" style="width:400px;height:30px">
+                                                                                    <asp:HyperLink runat="server" ID="HyperLink1" ImageUrl="~/Resources/Images/certified_organic_logo_2.png" NavigateUrl="~/default.aspx" Text="Contact Us"></asp:HyperLink>
+                                                                                </div>
+                                                                                <div class="clear"></div>
+
+                                                                                <div class="clear"></div>
+
+                                                                                <div id="USDATopHelp">
+                                                                                    <ul>
+                                                                                        <li runat="server" id="liLogIn" EnableViewState="false"><asp:HyperLink runat="server" ID="lnkLogIn" NavigateUrl="~/Login.aspx" Text="Log In" ToolTip="Log in to INTEGRITY" EnableViewState="false"></asp:HyperLink></li>
+                                                                                        <li runat="server" id="liRegister" EnableViewState="false"><asp:HyperLink runat="server" ID="lnkRegisterAccount" NavigateUrl="~/UserManagement/RegisterNewAccount.aspx" ToolTip="Register for INTEGRITY" Text="Register" EnableViewState="false"></asp:HyperLink></li>
+                                                                                        <li runat="server" id="liMyProfile" EnableViewState="false"><asp:HyperLink runat="server" CssClass="a-authuser" ID="lnkMyProfile" NavigateUrl="~/UserManagement/UserProfilePage.aspx" Text="User Name" EnableViewState="false"></asp:HyperLink></li>
+                                                                                        <li runat="server" id="liLogOut" EnableViewState="false"><asp:HyperLink runat="server" ID="lnkLogout" NavigateUrl="~/Logout.aspx" Text="Log Out" ToolTip="Log out from this web site" EnableViewState="false"></asp:HyperLink></li>
+                                                                                    </ul>
+                                                                                </div>
+
+                                                                                <div class="clear"></div>
+
+                                                                            </div><!-- header30_right end -->
+
+                                                                        </div><!-- wraper  -->
+                                                                        <div class="clear"></div>
+                                                                    </span>
+
+                                                                </div>
+
+                                                            </td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr style="min-height: 650px; height: 650px !important;">
+                                            <td style="width:100%;" valign="top">
+                                                <div id="mainContainer">
+                                                        <div class="container body-content">
+                                                            <div ng-app="app">
+                                                                @RenderBody()
+                                                                <hr />
+                                                            </div>
+                                                       </div>
+                                                    </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:100%;" valign="top">
+                                                <table class="layoutRow" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <div align="left">
+                                                                    <span>
+                                                                        <div id="footer">
+                                                                            <div id="footer_content">
+                                                                                <div id="footer_content_text">
+                                                                                    <br />
+                                                                                    <a class="footer" href="http://www.ams.usda.gov" title="">AMS</a>&nbsp;&nbsp;|&nbsp;
+                                                                                    <a class="footer" href="http://www.usda.gov" title="" target="_blank">USDA</a>&nbsp;&nbsp;|&nbsp;
+                                                                                    <a class="footer" href="http://www.ams.usda.gov/about-ams/foia" title="" target="_blank">FOIA</a>&nbsp;&nbsp;|&nbsp;
+                                                                                    <a class="footer" href="http://www.ams.usda.gov/about-ams/accessibility" title="" target="_blank">Accessibility</a>&nbsp;&nbsp;|&nbsp;
+                                                                                    <a class="footer" href="http://www.ams.usda.gov/about-ams/plain-language" title="" target="_blank">Plain Language</a>&nbsp;&nbsp;|&nbsp;
+                                                                                    <a class="footer" class="footer" href="http://www.ams.usda.gov/about-ams/quality" title="" target="_blank">Quality of Information</a>&nbsp;&nbsp;|&nbsp;
+                                                                                    <a class="footer" href="http://www.ams.usda.gov/about-ams/privacy" title="" target="_blank">Privacy</a>&nbsp;&nbsp;|&nbsp;
+                                                                                    <a class="footer" href="http://www.usda.gov/wps/portal/usda/usdahome?navtype=FT&navid=NON_DISCRIMINATION" title="" target="_blank">Nondiscrimination</a>&nbsp;&nbsp;|&nbsp;
+                                                                                    <a class="footer" href="http://www.usa.gov" title="" target="_blank">USA.gov</a>&nbsp;&nbsp;|&nbsp;
+                                                                                    <a class="footer" href="http://whitehouse.gov" title="" target="_blank">Whitehouse.gov</a>
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                        </div>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                       </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        </div>
+        @RenderSection("scripts", required: false)
+</body>
+</html>

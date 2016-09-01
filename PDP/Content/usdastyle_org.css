@@ -1,0 +1,753 @@
+body {
+	background-color: #3e3e3e;
+	margin:0; 
+	padding:0;
+}
+
+.headerfile
+{
+ margin-bottom: 0px;
+}
+
+/* Text of class accessibility will not be displayed but will be read by screen reader */
+.accessibility
+{
+	display: none;
+}
+
+
+.leftnavfile
+{
+	background-color: #FFFFFF;
+	margin-bottom: 0px;
+	
+}
+
+
+.rightnavfile
+{
+    background-color : #FFFFFF;
+	margin-bottom: 0px;
+	
+}
+
+TABLE, tr, td, img, label {
+margin-bottom: 0px;
+padding: 0;
+}
+
+/* Fieldset Tag */
+fieldset{
+border: 0; 
+}
+
+/*/* Center Div Tag */
+div.divcenter {
+text-align: center;
+}
+
+div.divright {
+text-align: right;
+}*/
+
+/* A and Image tags style to turn of border */
+A IMG 
+{ 
+border:0px;
+line-height: 0;
+margin-bottom: 0px;
+padding: 0;
+	font-size : 11px;
+}
+
+.squish
+{
+	vertical-align: bottom;
+	line-height: 0;
+	margin: 0px;
+	padding: 0px;
+}
+
+.nopadding
+{
+	line-height: 0;
+	margin: 0px;
+	padding: 0px;
+}
+
+.onepx
+{
+	margin-bottom: 0px;
+    line-height: 0px;
+}
+
+LI
+{
+FONT-FAMILY: Verdana;
+FONT-SIZE: 11px;
+list-style-type:disc;
+}
+
+/* Form call */
+form {
+display: inline; 
+margin-bottom: 0px;
+padding: 0;
+} 
+
+P
+{
+	FONT-SIZE: 11px;
+	COLOR: #000000;
+	FONT-FAMILY: Verdana;
+	margin-top:3px;
+	margin-bottom:7px;
+}
+UL
+{
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: 11px;
+	margin-top:5px;
+	margin-bottom:0em;
+}
+
+UL.bulletedSummaryList
+{
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: 11px;
+	margin-top:0px;
+	margin-bottom:0em;
+}
+
+/* Visited Link Style */
+A:visited
+{
+    FONT-WEIGHT: normal;
+    COLOR: #660099;
+    TEXT-DECORATION: none;
+}
+
+/* Link Style */
+A:link
+{
+    FONT-WEIGHT: normal;
+    COLOR: #000099;
+    TEXT-DECORATION: none;                     
+}
+
+/* Hover Link Style */
+A:hover
+{
+    FONT-WEIGHT: normal;
+    COLOR: #000099;
+    TEXT-DECORATION: underline;
+}
+
+
+/* Horizontal Rule Style */
+HR
+{
+    COLOR: #000000;
+    HEIGHT: 1px
+}
+
+
+/* Black Vertical Rule Style */
+TD.VerticalRuleBlack {
+border-left: 1px solid #000000; 
+}
+
+TABLE.biographyImageTable
+{
+	float: right;
+	width: 120px;
+}
+
+/* Table Center*/
+TABLE.tablecenter{
+text-align: center;
+background-color : #FFFFFF;
+}
+
+
+
+/* Table Border Style */
+TABLE.tableborder { 
+border: 1px solid #228623; 
+font-weight: normal; 
+text-decoration: none; 
+border-collapse: separate; 
+}
+
+
+/* Table Header Style */
+TH.THBorderTop
+{ 
+border-top: 1px solid #000000; 
+}
+
+TH.THBorder
+{ 
+FONT-FAMILY: Verdana;
+font-size : 11px;
+border-bottom: 1px solid #228623; 
+font-weight: bold; 
+COLOR: #FFFFFF;
+text-decoration: none; 
+border-collapse: separate; 
+background-color : #248621;
+} 
+
+/* Table Data Styles */
+TD.TDBorder { 
+border-bottom: 1px solid #228623; 
+font-weight: normal; 
+text-decoration: none; 
+border-collapse: separate; 
+
+} 
+
+TD.TDBorderTop { 
+border-top: 1px solid #000000; 
+font-weight: normal; 
+text-decoration: none; 
+border-collapse: separate; 
+
+} 
+
+
+TD.TDBorderHead { 
+FONT-FAMILY: Verdana;
+border-right: 1px solid #228623; 
+border-bottom: 1px solid #228623; 
+font-size : 11px;
+font-weight: bold; 
+text-decoration: none; 
+border-collapse: separate; 
+
+} 
+
+TD.TDBorderRight { 
+FONT-FAMILY: Verdana;
+border-bottom: 1px solid #228623; 
+font-size : 11px;
+font-weight: bold; 
+text-decoration: none; 
+border-collapse: separate; 
+
+} 
+
+
+TD.TDBorderLeft { 
+FONT-FAMILY: Verdana;
+border-left: 1px solid #000000; 
+font-size : 11px;
+font-weight: bold; 
+text-decoration: none; 
+border-collapse: separate; 
+
+}
+
+TD.TDL3APadding {
+height: 8px;
+}
+
+/* Content table */
+table.content-border
+{
+border: 1px solid #838584;
+border-collapse: collapse;
+}
+
+table.content-border th
+{
+font-family: Verdana;
+font-size: 11px;
+color: #228623;
+background-color: #ffffff;
+font-weight: bold;
+text-align: center;
+border: 1px solid #838584;
+}
+
+table.content-border td
+{
+font-family: Verdana;
+font-size: 11px;
+color: #228623;
+background-color: #ffffff;
+border: 1px solid #838584;
+}
+
+table.content-noborder th
+{
+font-family: Verdana;
+font-size: 11px;
+color: #228623;
+background-color: #ffffff;
+font-weight: bold;
+}
+
+table.content-noborder td
+{
+font-family: Verdana;
+font-size: 11px;
+color: #228623;
+background-color: #ffffff;
+}
+
+/* Header Styles */
+H1 {
+FONT-FAMILY: Verdana;
+font-size : 13px;
+font-weight : bold;
+color : #000000;
+}
+
+H2 {
+FONT-FAMILY: Verdana;
+font-size : 11px;
+font-weight : bold;
+color : #000000;
+}
+
+H3 {
+FONT-FAMILY: Verdana;
+font-size : 11px;
+font-weight : bold;
+color : #000000;
+
+}
+
+H4 {
+FONT-FAMILY: Verdana;
+font-size : 11px;
+font-weight : bold;
+color : #000000;
+
+}
+
+H5 {
+FONT-FAMILY: Verdana;
+font-size : 11px;
+font-weight : bold;
+color : #000000;
+
+}
+
+/* Form Field Styles */
+.searchform { 
+ FONT-FAMILY: Verdana;
+ font-size: 11px; 
+ width: 116px;
+/* height: 14px; */ 
+ margin-bottom: 0px;
+}
+
+.advsearchform { 
+ FONT-FAMILY: Verdana;
+ font-size: 11px; 
+ width: 160px;
+ margin: 2px 0px 2px 0px;
+}
+
+.audiencebox { 
+ FONT-FAMILY: Verdana;
+ font-size: 10px; 
+ width: 154px;
+ height: 18px;
+ font-weight : normal;
+ color : #000000;
+} 
+
+.latestnewsselectboxmonth { 
+ FONT-FAMILY: Verdana;
+ font-size: 11px; 
+ width:90px;
+ font-weight : normal;
+ color : #000000;
+}
+.latestnewsselectboxyear { 
+ FONT-FAMILY: Verdana;
+ font-size: 11px; 
+ width:60px;
+ font-weight : normal;
+ color : #000000;
+}
+.checkbox { 
+ FONT-FAMILY: Verdana;
+ width: 12px;
+ height: 12px; 
+}
+
+.dropdown { 
+ FONT-FAMILY: Verdana;
+ width: 115px;
+ height: 20px; 
+ }
+
+.stateselect { 
+ FONT-FAMILY: Verdana;
+ width: 125px;
+ height: 20px; 
+ font-size: 11px; 
+ font-weight : normal;
+ color : #000000;
+ }
+
+/* Bodytext Styles */
+.BodyTextBlack {
+	FONT-FAMILY: Verdana;
+	font-size : 11px;
+	font-weight : normal;
+	color : #000000;
+}
+
+.BodyTextRed {
+	FONT-FAMILY: Verdana;
+	font-size : 10px;
+	font-weight : normal;
+	color : #ff0000;
+}
+
+.BodyTextRedBold {
+	FONT-FAMILY: Verdana;
+	font-size : 11px;
+	font-weight : bold;
+	color : #ff0000;
+}
+
+.BodyTextBlue {
+	FONT-FAMILY: Verdana;
+	font-size : 11px;
+	font-weight : normal;
+	color : #000099;
+}
+
+.FootTextBlue {
+	FONT-FAMILY: Verdana;
+	font-size : 10px;
+	font-weight : normal;
+	color : #000099;
+}
+
+/* Column Heading Styles */
+.BodyTextBlackBold{
+	FONT-FAMILY: Verdana;
+	font-size : 11px;
+	font-weight : bold;
+	color : #000000;
+}
+
+.BodyTextBlueBold {
+	FONT-FAMILY: Verdana;
+	font-size : 11px;
+	font-weight : bold;
+	color : #000099;
+}
+
+/* Sub Heading Styles */
+
+.HdrBlue {
+	FONT-FAMILY: Verdana;
+	font-size : 13px;
+	font-weight : normal;
+	color : #000099;
+}
+
+.HdrBlack {
+	FONT-FAMILY: Verdana;
+	font-size : 13px;
+	font-weight : normal;
+	color : #000000;
+}
+
+.HdrBlueBold {
+	FONT-FAMILY: Verdana;
+	font-size : 13px;
+	font-weight : bold;
+	color : #000099;
+}
+
+.HdrBlackBold {
+	FONT-FAMILY: Verdana;
+	font-size : 13px;
+	font-weight : bold;
+	color : #000000;
+}
+
+
+.BodyTextBlackSmall {
+	FONT-FAMILY: Verdana;
+	font-size : 10px;
+	font-weight : normal;
+	color : #000000;
+}
+
+.BodyTextBlueSmall {
+	FONT-FAMILY: Verdana;
+	font-size : 10px;
+ 	font-weight : normal;
+	color : #000099;
+}
+
+.BodyTextBlueSmallBold {
+	FONT-FAMILY: Verdana;
+	font-size : 10px;
+ 	font-weight : bold;
+	color : #000099;
+}
+
+
+.ErrorMessageNormal {
+	FONT-FAMILY: Verdana;
+	font-size : 11px;
+	font-weight : normal;
+	color : #FF0000;
+		}
+.ErrorMessageBold {
+	FONT-FAMILY: Verdana;
+	font-size : 11px;
+	font-weight : bold;
+	color : #FF0000;
+		}
+
+
+/* Background Color Styles */
+.LeftNavTopSectionColor {
+	background-color : #C5C5C5;
+	FONT-FAMILY: Verdana;
+	font-size : 11px;
+	font-weight : normal;
+	margin-bottom: 0px;
+
+}
+.LeftNavBottomSectionColor {
+	background-color : #C5C5C5;
+	FONT-FAMILY: Verdana;
+	font-size : 11px;
+	font-weight : normal
+}
+
+.LeftNavBackgroundColor {
+	background-color : #C5C5C5;
+	margin-bottom: 0px;
+	FONT-FAMILY: Verdana;
+	font-size : 11px;
+	font-weight : normal
+}
+
+
+.RightNavBackgroundColor {
+	background-color : #F2F2F2;
+	margin-bottom: 0px;
+}
+
+.GrayBackgroundColor {
+	background-color : #B8B8B8;
+	margin-bottom: 0px;
+}
+
+.WhiteBackgroundColor {
+	background-color : #FFFFFF;
+	margin-bottom: 0px;
+	
+}
+
+.WhiteBackgroundColor2 {
+	background-color : #FFFFFF;
+	margin-bottom: 0px;
+	line-height: 0;
+}
+
+.WhiteSpacer {
+	width:10px;
+	background-color: #FFFFFF;
+	margin-bottom: 0px;
+}
+
+
+.BlackBackgroundColor {
+	background-color: #000000;
+	margin-bottom: 0px;
+	
+}
+.BlackBackgroundColor2 {
+	background-color: #FFFFFF;
+	margin-bottom: 0px;
+	line-height: 0;
+}
+
+/* Footer Style */
+.footertable
+{
+	border-top-width: 1px;
+	border-top-color: #B8B8B8;
+	border-top-style: solid;
+}
+.FooterText {
+	FONT-FAMILY: Verdana;
+	font-size : 10px;
+	font-weight : normal;
+	color : #000099;
+	border-bottom: 1px solid #000000; 
+	
+	}
+	
+/* Bread Crumb Style */
+.Breadcrumb {
+	FONT-FAMILY: Verdana;
+	font-size : 9px;
+	font-weight : normal;
+	color : #000000;
+}
+
+/* Skip Navigation Style */
+.bypass-nav
+     {
+          background-color : #3F3E3E;
+		  z-index: 0;
+    	  margin-bottom: 0px;
+		  line-height: 0;
+     }
+
+/* myUSDA and Registration */
+
+/* used on usda portlet titlebar */
+.wpsPortletTitleUSDA {
+	FONT-FAMILY: Verdana;
+	font-size : 13px;
+	font-weight : bold;
+	color : #000000;
+}
+
+/* used on usda portlet titlebar */
+.wpsPortletTitleUSDAsmall {
+	FONT-FAMILY: Verdana;
+	font-size : 9px;
+	font-weight : normal;
+	color : #000000;
+}
+
+/* Registration Select Box */
+.regSelectBox
+{
+	FONT-FAMILY: Verdana;
+	font-size : 11px;
+	font-weight : normal;
+	color : #000000;
+	width: 200px;
+}
+
+/* FAQ Select Box */
+.faqselect { 
+ FONT-FAMILY: Verdana;
+ font-size: 11px; 
+ width: 325px;
+ height: 20px;
+ font-weight : normal;
+ color : #000000;
+}
+
+.agencyreportselectboxmonth
+{
+FONT-FAMILY: Verdana;
+font-size: 11px; 
+width:70px;
+font-weight : normal;
+color : #000000;
+}
+
+.agencyreportselectboxday
+{
+FONT-FAMILY: Verdana;
+font-size: 11px; 
+width:40px;
+font-weight : normal;
+color : #000000;
+}
+
+.agencyreportselectboxyear
+{
+FONT-FAMILY: Verdana;
+font-size: 11px; 
+width:55px;
+font-weight : normal;
+color : #000000;
+}
+
+.headline {
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #000000;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: solid;
+	border-left-style: none;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+	padding-left: 8px;
+}
+
+input { 
+ 	font-family: expression(this.type=="button" || this.type=="submit" || this.type=="reset"? 'Helvetica, Verdana, Arial, sans-serif' : ''); 
+	font-size: expression(this.type=="button" || this.type=="submit" || this.type=="reset"? '11px' : ''); 	
+	font-weight: expression(this.type=="button" || this.type=="submit" || this.type=="reset"? 'bold' : ''); 
+	padding-right: expression(this.type=="button" || this.type=="submit" || this.type=="reset"? '6px' : ''); 	
+	padding-left: expression(this.type=="button" || this.type=="submit" || this.type=="reset"? '6px' : ''); 	
+} 
+
+input[type="submit"] { 
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	padding-right: 6px;
+	padding-left: 6px;
+} 
+
+input[type="button"] { 
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	padding-right: 6px;
+	padding-left: 6px;
+}
+ 
+input[type="reset"] { 
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	padding-right: 6px;
+	padding-left: 6px;
+} 
+.btnLink {
+	border: 0px none;
+	text-decoration: underline;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	background-color: #f2f2f2;
+	color: #000099;
+	background-position: left;
+	text-align: left;
+	white-space: normal;
+	margin: 0px;
+	padding: 0px;
+	clear: none;
+	float: none;
+	height: auto;
+}
+th {
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #4F7E38;
+}

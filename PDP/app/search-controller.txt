@@ -1,0 +1,106 @@
+﻿interface JQuery {
+    jqGrid: any;
+}
+
+interface JQueryStatic {
+    jgrid: any;
+}
+
+
+
+module app.search {
+   
+ 
+    class SearchController {
+        commodities: models.ICommodity[];
+        pesticides: models.IPesticide[];
+        testClasses: models.ITestClass[];
+        years: models.IYear[];
+
+        showSearchPanel: boolean;
+        showResultsPanel: boolean;
+
+        checkAllPesticides: boolean;
+        checkSpecificTestClass: boolean;
+        checkAllCommodities: boolean;
+        checkAllYears: boolean;
+
+        constructor(private SearchService: services.ISearchService) {
+
+            this.load();
+            
+            this.checkAllCommodities = true;
+            this.checkAllPesticides = true;
+            this.checkSpecificTestClass = false;
+            this.checkAllYears = true;
+
+            this.makeSearchPanelVisible();
+        }
+
+        
+
+        search(): void {
+
+            var checkedPredicate = (item: models.IEntity) => {
+                return item.isChecked;
+            };
+            //$sc.loading = true;
+            var checkedCommodities = <models.ICommodity[]>_.filter(this.commodities, checkedPredicate);
+            var checkedPesticides = <models.IPesticide[]>_.filter(this.pesticides, checkedPredicate);
+            var checkedTestClasses = <models.ITestClass[]>_.filter(this.testClasses, checkedPredicate);
+            var checkedYears = <models.IYear[]>_.filter(this.years, checkedPredicate);
+
+            switch (this.selectedOutputPreference.id) {
+                case 1:
+                    this.getAnalyticalResults(checkedCommodities, checkedPesticides, checkedTestClasses, checkedYears, this.selectedResultsPreference.id);
+                    break;
+                case 2:
+                    this.getSampleResults1(checkedCommodities, checkedPesticides, checkedTestClasses, checkedYears, this.selectedResultsPreference.id);
+                    break;
+                case 3:
+                    this.getSummaryOfNdLods(checkedCommodities, checkedPesticides, checkedTestClasses, checkedYears);
+                    break;
+                case 4:
+                    this.getSummaryOfFindings(checkedCommodities, checkedPesticides, checkedTestClasses, checkedYears);
+                    break;
+                case 5:
+                    this.getSummaryOfFindingsByLod(checkedCommodities, checkedPesticides, checkedTestClasses, checkedYears);
+                    break;
+                case 6:
+                    this.getSummaryOfFindingsByCountryOfOrigin(checkedCommodities, checkedPesticides, checkedTestClasses, checkedYears);
+                    break;
+                case 7:
+                    this.getSummaryOfFindingsByClaim(checkedCommodities, checkedPesticides, checkedTestClasses, checkedYears);
+                    break;
+                default:
+            }
+
+            //$scope.loading = false;
+        }
+
+               
+
+        private getSampleResults1(commodities: models.ICommodity[], pesticides: models.IPesticide[], testClasses: models.ITestClass[], years: models.IYear[], resultOptionId: number): void {
+            
+            this.showResultsPanel = true;
+            this.showSearchPanel = false;
+             
+            
+                       
+            //init();
+
+        }
+      
+
+        
+    }
+
+    angular
+        .module('app.search')
+        .controller('app.search.SearchController', [
+
+            'app.services.SearchService',
+
+            SearchController
+        ]);
+}

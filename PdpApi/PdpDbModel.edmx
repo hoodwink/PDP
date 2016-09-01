@@ -1,0 +1,1001 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PDPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Annotate_LU">
+          <Key>
+            <PropertyRef Name="ANNOTATE" />
+          </Key>
+          <Property Name="ANNOTATE" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="Claim_LU">
+          <Key>
+            <PropertyRef Name="CLAIM" />
+          </Key>
+          <Property Name="CLAIM" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Commod_History_LU">
+          <Key>
+            <PropertyRef Name="PDP_YEAR" />
+            <PropertyRef Name="COMMOD" />
+          </Key>
+          <Property Name="PDP_YEAR" Type="smallint" Nullable="false" />
+          <Property Name="COMMOD" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="SAMPCNT" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Commod_LU">
+          <Key>
+            <PropertyRef Name="COMMOD" />
+          </Key>
+          <Property Name="COMMOD" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="DESCRIPT" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="CommType_LU">
+          <Key>
+            <PropertyRef Name="COMMTYPE" />
+          </Key>
+          <Property Name="COMMTYPE" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="ConfMethod_LU">
+          <Key>
+            <PropertyRef Name="CONFMETHOD" />
+          </Key>
+          <Property Name="CONFMETHOD" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="ConUnit_LU">
+          <Key>
+            <PropertyRef Name="CONUNIT" />
+          </Key>
+          <Property Name="CONUNIT" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Country_LU">
+          <Key>
+            <PropertyRef Name="COUNTRY" />
+          </Key>
+          <Property Name="COUNTRY" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="Determin_LU">
+          <Key>
+            <PropertyRef Name="DETERMIN" />
+          </Key>
+          <Property Name="DETERMIN" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="DistType_LU">
+          <Key>
+            <PropertyRef Name="DISTTYPE" />
+          </Key>
+          <Property Name="DISTTYPE" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Extract_LU">
+          <Key>
+            <PropertyRef Name="EXTRACT" />
+          </Key>
+          <Property Name="EXTRACT" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="90" />
+        </EntityType>
+        <EntityType Name="Lab_LU">
+          <Key>
+            <PropertyRef Name="LAB" />
+          </Key>
+          <Property Name="LAB" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Mean_LU">
+          <Key>
+            <PropertyRef Name="MEAN" />
+          </Key>
+          <Property Name="MEAN" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Origin_LU">
+          <Key>
+            <PropertyRef Name="ORIGIN" />
+          </Key>
+          <Property Name="ORIGIN" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Pest_History_LU">
+          <Key>
+            <PropertyRef Name="PDP_YEAR" />
+            <PropertyRef Name="PESTCODE" />
+          </Key>
+          <Property Name="PDP_YEAR" Type="smallint" Nullable="false" />
+          <Property Name="PESTCODE" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="COMMODCNT" Type="smallint" />
+        </EntityType>
+        <EntityType Name="PestCode_LU">
+          <Key>
+            <PropertyRef Name="PESTCODE" />
+          </Key>
+          <Property Name="PESTCODE" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="100" />
+          <Property Name="TESTCLASS" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Quantitate_LU">
+          <Key>
+            <PropertyRef Name="QUANTITATE" />
+          </Key>
+          <Property Name="QUANTITATE" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="ResultsData">
+          <Key>
+            <PropertyRef Name="SAMPLE_PK" />
+            <PropertyRef Name="PESTCODE" />
+            <PropertyRef Name="PDP_YEAR" />
+            <PropertyRef Name="COMMOD" />
+          </Key>
+          <Property Name="SAMPLE_PK" Type="int" Nullable="false" />
+          <Property Name="PESTCODE" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="PDP_YEAR" Type="smallint" Nullable="false" />
+          <Property Name="COMMOD" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="COMMTYPE" Type="nvarchar" MaxLength="2" />
+          <Property Name="LAB" Type="nvarchar" MaxLength="3" />
+          <Property Name="TESTCLASS" Type="nvarchar" MaxLength="1" />
+          <Property Name="CONCEN" Type="float" />
+          <Property Name="LOD" Type="float" />
+          <Property Name="CONUNIT" Type="nvarchar" MaxLength="1" />
+          <Property Name="CONFMETHOD" Type="nvarchar" MaxLength="2" />
+          <Property Name="CONFMETHOD2" Type="nvarchar" MaxLength="2" />
+          <Property Name="ANNOTATE" Type="nvarchar" MaxLength="2" />
+          <Property Name="QUANTITATE" Type="nvarchar" MaxLength="2" />
+          <Property Name="MEAN" Type="nvarchar" MaxLength="2" />
+          <Property Name="EXTRACT" Type="nvarchar" MaxLength="3" />
+          <Property Name="DETERMIN" Type="nvarchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="SampleData">
+          <Key>
+            <PropertyRef Name="SAMPLE_PK" />
+          </Key>
+          <Property Name="SAMPLE_PK" Type="int" Nullable="false" />
+          <Property Name="STATE" Type="nvarchar" MaxLength="2" />
+          <Property Name="YEAR" Type="nvarchar" MaxLength="2" />
+          <Property Name="MONTH" Type="nvarchar" MaxLength="2" />
+          <Property Name="DAY" Type="nvarchar" MaxLength="2" />
+          <Property Name="SITE" Type="nvarchar" MaxLength="4" />
+          <Property Name="COMMOD" Type="nvarchar" MaxLength="2" />
+          <Property Name="SOURCE_ID" Type="nvarchar" MaxLength="1" />
+          <Property Name="VARIETY" Type="nvarchar" MaxLength="20" />
+          <Property Name="ORIGIN" Type="nvarchar" MaxLength="1" />
+          <Property Name="COUNTRY" Type="nvarchar" MaxLength="3" />
+          <Property Name="DISTTYPE" Type="nvarchar" MaxLength="1" />
+          <Property Name="COMMTYPE" Type="nvarchar" MaxLength="2" />
+          <Property Name="CLAIM" Type="nvarchar" MaxLength="2" />
+          <Property Name="QUANTITY" Type="smallint" />
+          <Property Name="GROWST" Type="nvarchar" MaxLength="2" />
+          <Property Name="PACKST" Type="nvarchar" MaxLength="2" />
+          <Property Name="DISTST" Type="nvarchar" MaxLength="2" />
+          <Property Name="ORIGST" Type="nvarchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="State_LU">
+          <Key>
+            <PropertyRef Name="STATE" />
+          </Key>
+          <Property Name="STATE" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="telecom_order">
+          <Key>
+            <PropertyRef Name="Request Number" />
+          </Key>
+          <Property Name="Request Number" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Order Date" Type="datetime" />
+          <Property Name="Fiscal Year" Type="float" />
+          <Property Name="Submitter" Type="nvarchar" MaxLength="255" />
+          <Property Name="Location" Type="nvarchar" MaxLength="255" />
+          <Property Name="Program" Type="nvarchar" MaxLength="255" />
+          <Property Name="Branch" Type="nvarchar" MaxLength="255" />
+          <Property Name="Group" Type="nvarchar" MaxLength="255" />
+          <Property Name="Option" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" MaxLength="255" />
+          <Property Name="Link" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TestClass_LU">
+          <Key>
+            <PropertyRef Name="TESTCLASS" />
+          </Key>
+          <Property Name="TESTCLASS" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="DESCRIP" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Tolerance_LU">
+          <Key>
+            <PropertyRef Name="PDP_YEAR" />
+            <PropertyRef Name="PESTCODE" />
+            <PropertyRef Name="COMMOD" />
+          </Key>
+          <Property Name="PDP_YEAR" Type="smallint" Nullable="false" />
+          <Property Name="PESTCODE" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="COMMOD" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="EPATOL" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="TOLUNIT" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <Association Name="FK_SampleData_Country">
+          <End Role="Country_LU" Type="Self.Country_LU" Multiplicity="0..1" />
+          <End Role="SampleData" Type="Self.SampleData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country_LU">
+              <PropertyRef Name="COUNTRY" />
+            </Principal>
+            <Dependent Role="SampleData">
+              <PropertyRef Name="COUNTRY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="get_pdp_result_tbl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="start_offset" Type="int" Mode="In" />
+          <Parameter Name="numb_rows" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="PDP Sample ID" Type="nvarchar" MaxLength="18" />
+                <Property Name="Com" Type="nvarchar" MaxLength="2" Nullable="false" />
+                <Property Name="Pest Code" Type="nvarchar" MaxLength="3" Nullable="false" />
+                <Property Name="Pesticide Name" Type="nvarchar" MaxLength="100" />
+                <Property Name="Concen" Type="float" />
+                <Property Name="LOD" Type="float" />
+                <Property Name="pp_" Type="nvarchar" MaxLength="1" />
+                <Property Name="Ann" Type="nvarchar" MaxLength="2" />
+                <Property Name="Qua" Type="nvarchar" MaxLength="2" />
+                <Property Name="Mean" Type="nvarchar" MaxLength="2" />
+                <Property Name="Type" Type="nvarchar" MaxLength="2" />
+                <Property Name="Variety" Type="nvarchar" MaxLength="20" />
+                <Property Name="Clm" Type="nvarchar" MaxLength="2" />
+                <Property Name="Fac" Type="nvarchar" MaxLength="1" />
+                <Property Name="Origin" Type="nvarchar" MaxLength="1" />
+                <Property Name="Country" Type="nvarchar" MaxLength="80" />
+                <Property Name="State" Type="nvarchar" MaxLength="2" />
+                <Property Name="Qty" Type="smallint" />
+                <Property Name="Tol (ppm)" Type="nvarchar" MaxLength="15" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="spCommodityHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spPesticideHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spToleranceLevel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="PDPModelStoreContainer">
+          <EntitySet Name="Annotate_LU" EntityType="Self.Annotate_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Claim_LU" EntityType="Self.Claim_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Commod_History_LU" EntityType="Self.Commod_History_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Commod_LU" EntityType="Self.Commod_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommType_LU" EntityType="Self.CommType_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfMethod_LU" EntityType="Self.ConfMethod_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConUnit_LU" EntityType="Self.ConUnit_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country_LU" EntityType="Self.Country_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Determin_LU" EntityType="Self.Determin_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DistType_LU" EntityType="Self.DistType_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Extract_LU" EntityType="Self.Extract_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lab_LU" EntityType="Self.Lab_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mean_LU" EntityType="Self.Mean_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Origin_LU" EntityType="Self.Origin_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pest_History_LU" EntityType="Self.Pest_History_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PestCode_LU" EntityType="Self.PestCode_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quantitate_LU" EntityType="Self.Quantitate_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResultsData" EntityType="Self.ResultsData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SampleData" EntityType="Self.SampleData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State_LU" EntityType="Self.State_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="telecom_order" EntityType="Self.telecom_order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestClass_LU" EntityType="Self.TestClass_LU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tolerance_LU" EntityType="Self.Tolerance_LU" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_SampleData_Country" Association="Self.FK_SampleData_Country">
+            <End Role="Country_LU" EntitySet="Country_LU" />
+            <End Role="SampleData" EntitySet="SampleData" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PDPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Country_LU">
+          <Key>
+            <PropertyRef Name="COUNTRY" />
+          </Key>
+          <Property Name="COUNTRY" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIP" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SampleDatas" Relationship="PDPModel.FK_SampleData_Country" FromRole="Country_LU" ToRole="SampleData" />
+        </EntityType>
+        <EntityType Name="PestCode_LU">
+          <Key>
+            <PropertyRef Name="PESTCODE" />
+          </Key>
+          <Property Name="PESTCODE" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TESTCLASS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SampleData">
+          <Key>
+            <PropertyRef Name="SAMPLE_PK" />
+          </Key>
+          <Property Name="SAMPLE_PK" Type="Int32" Nullable="false" />
+          <Property Name="STATE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="YEAR" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="MONTH" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DAY" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="SITE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="COMMOD" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="SOURCE_ID" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="VARIETY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ORIGIN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="COUNTRY" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="DISTTYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="COMMTYPE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CLAIM" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="QUANTITY" Type="Int16" />
+          <Property Name="GROWST" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="PACKST" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DISTST" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ORIGST" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Country_LU" Relationship="PDPModel.FK_SampleData_Country" FromRole="SampleData" ToRole="Country_LU" />
+        </EntityType>
+        <EntityContainer Name="PDPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Country_LU" EntityType="Self.Country_LU" />
+          <EntitySet Name="PestCode_LU" EntityType="Self.PestCode_LU" />
+          <EntitySet Name="SampleDatas" EntityType="Self.SampleData" />
+          <FunctionImport Name="get_pdp_result_tbl" IsComposable="true" ReturnType="Collection(PDPModel.get_pdp_result_tbl_Result)">
+            <Parameter Name="start_offset" Mode="In" Type="Int32" />
+            <Parameter Name="numb_rows" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="FK_SampleData_Country" Association="PDPModel.FK_SampleData_Country">
+            <End Role="Country_LU" EntitySet="Country_LU" />
+            <End Role="SampleData" EntitySet="SampleDatas" />
+          </AssociationSet>
+          <EntitySet Name="Tolerance_LU" EntityType="PDPModel.Tolerance_LU" />
+          <EntitySet Name="ResultsDatas" EntityType="PDPModel.ResultsData" />
+          <EntitySet Name="telecom_order" EntityType="PDPModel.telecom_order" />
+          <EntitySet Name="Claim_LU" EntityType="PDPModel.Claim_LU" />
+          <EntitySet Name="Commod_History_LU" EntityType="PDPModel.Commod_History_LU" />
+          <EntitySet Name="Commod_LU" EntityType="PDPModel.Commod_LU" />
+          <EntitySet Name="CommType_LU" EntityType="PDPModel.CommType_LU" />
+          <EntitySet Name="ConfMethod_LU" EntityType="PDPModel.ConfMethod_LU" />
+          <EntitySet Name="ConUnit_LU" EntityType="PDPModel.ConUnit_LU" />
+          <EntitySet Name="Determin_LU" EntityType="PDPModel.Determin_LU" />
+          <EntitySet Name="DistType_LU" EntityType="PDPModel.DistType_LU" />
+          <EntitySet Name="Extract_LU" EntityType="PDPModel.Extract_LU" />
+          <EntitySet Name="Lab_LU" EntityType="PDPModel.Lab_LU" />
+          <EntitySet Name="Mean_LU" EntityType="PDPModel.Mean_LU" />
+          <EntitySet Name="Origin_LU" EntityType="PDPModel.Origin_LU" />
+          <EntitySet Name="Pest_History_LU" EntityType="PDPModel.Pest_History_LU" />
+          <EntitySet Name="Quantitate_LU" EntityType="PDPModel.Quantitate_LU" />
+          <EntitySet Name="State_LU" EntityType="PDPModel.State_LU" />
+          <EntitySet Name="TestClass_LU" EntityType="PDPModel.TestClass_LU" />
+          <EntitySet Name="Annotate_LU" EntityType="PDPModel.Annotate_LU" />
+          <FunctionImport Name="spCommodityHistory" ReturnType="Collection(PDPModel.spCommodityHistory_Result)" />
+          <FunctionImport Name="spPesticideHistory" ReturnType="Collection(PDPModel.spPesticideHistory_Result)" />
+          <FunctionImport Name="spToleranceLevel" ReturnType="Collection(PDPModel.spToleranceLevel_Result)" />
+        </EntityContainer>
+        <ComplexType Name="get_pdp_result_tbl_Result">
+          <Property Type="String" Name="PDP_Sample_ID" Nullable="true" MaxLength="18" />
+          <Property Type="String" Name="Com" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="Pest_Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Pesticide_Name" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="Concen" Nullable="true" />
+          <Property Type="Double" Name="LOD" Nullable="true" />
+          <Property Type="String" Name="pp_" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="Ann" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="Qua" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="Mean" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="Type" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="Variety" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Clm" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="Fac" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="Origin" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="Country" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="2" />
+          <Property Type="Int16" Name="Qty" Nullable="true" />
+          <Property Type="String" Name="Tol__ppm_" Nullable="true" MaxLength="15" />
+        </ComplexType>
+        <Association Name="FK_SampleData_Country">
+          <End Type="PDPModel.Country_LU" Role="Country_LU" Multiplicity="0..1" />
+          <End Type="PDPModel.SampleData" Role="SampleData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country_LU">
+              <PropertyRef Name="COUNTRY" />
+            </Principal>
+            <Dependent Role="SampleData">
+              <PropertyRef Name="COUNTRY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tolerance_LU">
+          <Key>
+            <PropertyRef Name="PDP_YEAR" />
+            <PropertyRef Name="PESTCODE" />
+            <PropertyRef Name="COMMOD" />
+          </Key>
+          <Property Name="PDP_YEAR" Type="Int16" Nullable="false" />
+          <Property Name="PESTCODE" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="COMMOD" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="EPATOL" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="TOLUNIT" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ResultsData">
+          <Key>
+            <PropertyRef Name="SAMPLE_PK" />
+            <PropertyRef Name="PESTCODE" />
+            <PropertyRef Name="PDP_YEAR" />
+            <PropertyRef Name="COMMOD" />
+          </Key>
+          <Property Name="SAMPLE_PK" Type="Int32" Nullable="false" />
+          <Property Name="PESTCODE" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="PDP_YEAR" Type="Int16" Nullable="false" />
+          <Property Name="COMMOD" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="COMMTYPE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="LAB" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="TESTCLASS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CONCEN" Type="Double" />
+          <Property Name="LOD" Type="Double" />
+          <Property Name="CONUNIT" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CONFMETHOD" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CONFMETHOD2" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ANNOTATE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="QUANTITATE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="MEAN" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="EXTRACT" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="DETERMIN" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="telecom_order">
+          <Key>
+            <PropertyRef Name="Request_Number" />
+          </Key>
+          <Property Name="Request_Number" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Order_Date" Type="DateTime" Precision="3" />
+          <Property Name="Fiscal_Year" Type="Double" />
+          <Property Name="Submitter" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Program" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Branch" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Group" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Option" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Claim_LU">
+          <Key>
+            <PropertyRef Name="CLAIM" />
+          </Key>
+          <Property Name="CLAIM" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIP" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Commod_History_LU">
+          <Key>
+            <PropertyRef Name="PDP_YEAR" />
+            <PropertyRef Name="COMMOD" />
+          </Key>
+          <Property Name="PDP_YEAR" Type="Int16" Nullable="false" />
+          <Property Name="COMMOD" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="SAMPCNT" Type="Int16" />
+        </EntityType>
+        <EntityType Name="Commod_LU">
+          <Key>
+            <PropertyRef Name="COMMOD" />
+          </Key>
+          <Property Name="COMMOD" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPT" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CommType_LU">
+          <Key>
+            <PropertyRef Name="COMMTYPE" />
+          </Key>
+          <Property Name="COMMTYPE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIP" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ConfMethod_LU">
+          <Key>
+            <PropertyRef Name="CONFMETHOD" />
+          </Key>
+          <Property Name="CONFMETHOD" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIP" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ConUnit_LU">
+          <Key>
+            <PropertyRef Name="CONUNIT" />
+          </Key>
+          <Property Name="CONUNIT" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIP" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Determin_LU">
+          <Key>
+            <PropertyRef Name="DETERMIN" />
+          </Key>
+          <Property Name="DETERMIN" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIP" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DistType_LU">
+          <Key>
+            <PropertyRef Name="DISTTYPE" />
+          </Key>
+          <Property Name="DISTTYPE" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIP" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Extract_LU">
+          <Key>
+            <PropertyRef Name="EXTRACT" />
+          </Key>
+          <Property Name="EXTRACT" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIP" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Lab_LU">
+          <Key>
+            <PropertyRef Name="LAB" />
+          </Key>
+          <Property Name="LAB" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Mean_LU">
+          <Key>
+            <PropertyRef Name="MEAN" />
+          </Key>
+          <Property Name="MEAN" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIP" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Origin_LU">
+          <Key>
+            <PropertyRef Name="ORIGIN" />
+          </Key>
+          <Property Name="ORIGIN" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIP" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Pest_History_LU">
+          <Key>
+            <PropertyRef Name="PDP_YEAR" />
+            <PropertyRef Name="PESTCODE" />
+          </Key>
+          <Property Name="PDP_YEAR" Type="Int16" Nullable="false" />
+          <Property Name="PESTCODE" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="COMMODCNT" Type="Int16" />
+        </EntityType>
+        <EntityType Name="Quantitate_LU">
+          <Key>
+            <PropertyRef Name="QUANTITATE" />
+          </Key>
+          <Property Name="QUANTITATE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIP" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="State_LU">
+          <Key>
+            <PropertyRef Name="STATE" />
+          </Key>
+          <Property Name="STATE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIP" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TestClass_LU">
+          <Key>
+            <PropertyRef Name="TESTCLASS" />
+          </Key>
+          <Property Name="TESTCLASS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIP" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Annotate_LU">
+          <Key>
+            <PropertyRef Name="ANNOTATE" />
+          </Key>
+          <Property Name="ANNOTATE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIP" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="spCommodityHistory_Result">
+          <Property Type="String" Name="Commodity_Name" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="2" />
+          <Property Type="Int32" Name="C2014" Nullable="true" />
+          <Property Type="Int32" Name="C2013" Nullable="true" />
+          <Property Type="Int32" Name="C2012" Nullable="true" />
+          <Property Type="Int32" Name="C2011" Nullable="true" />
+          <Property Type="Int32" Name="C2010" Nullable="true" />
+          <Property Type="Int32" Name="C2009" Nullable="true" />
+          <Property Type="Int32" Name="C2008" Nullable="true" />
+          <Property Type="Int32" Name="C2007" Nullable="true" />
+          <Property Type="Int32" Name="C2006" Nullable="true" />
+          <Property Type="Int32" Name="C2005" Nullable="true" />
+          <Property Type="Int32" Name="C2004" Nullable="true" />
+          <Property Type="Int32" Name="C2003" Nullable="true" />
+          <Property Type="Int32" Name="C2002" Nullable="true" />
+          <Property Type="Int32" Name="C2001" Nullable="true" />
+          <Property Type="Int32" Name="C2000" Nullable="true" />
+          <Property Type="Int32" Name="C1999" Nullable="true" />
+          <Property Type="Int32" Name="C1998" Nullable="true" />
+          <Property Type="Int32" Name="C1997" Nullable="true" />
+          <Property Type="Int32" Name="C1996" Nullable="true" />
+          <Property Type="Int32" Name="C1995" Nullable="true" />
+          <Property Type="Int32" Name="C1994" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spPesticideHistory_Result">
+          <Property Type="String" Name="Pesticide_Name" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+          <Property Type="Int32" Name="C2014" Nullable="true" />
+          <Property Type="Int32" Name="C2013" Nullable="true" />
+          <Property Type="Int32" Name="C2012" Nullable="true" />
+          <Property Type="Int32" Name="C2011" Nullable="true" />
+          <Property Type="Int32" Name="C2010" Nullable="true" />
+          <Property Type="Int32" Name="C2009" Nullable="true" />
+          <Property Type="Int32" Name="C2008" Nullable="true" />
+          <Property Type="Int32" Name="C2007" Nullable="true" />
+          <Property Type="Int32" Name="C2006" Nullable="true" />
+          <Property Type="Int32" Name="C2005" Nullable="true" />
+          <Property Type="Int32" Name="C2004" Nullable="true" />
+          <Property Type="Int32" Name="C2003" Nullable="true" />
+          <Property Type="Int32" Name="C2002" Nullable="true" />
+          <Property Type="Int32" Name="C2001" Nullable="true" />
+          <Property Type="Int32" Name="C2000" Nullable="true" />
+          <Property Type="Int32" Name="C1999" Nullable="true" />
+          <Property Type="Int32" Name="C1998" Nullable="true" />
+          <Property Type="Int32" Name="C1997" Nullable="true" />
+          <Property Type="Int32" Name="C1996" Nullable="true" />
+          <Property Type="Int32" Name="C1995" Nullable="true" />
+          <Property Type="Int32" Name="C1994" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spToleranceLevel_Result">
+          <Property Type="Int16" Name="Report_Year" Nullable="false" />
+          <Property Type="String" Name="Pesticide_Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Pesticide_Name" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Commodity_Code" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="Commodity_Name" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="EPA_Tolerance_Level" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="Unit_pp_" Nullable="true" MaxLength="1" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PDPModelStoreContainer" CdmEntityContainer="PDPEntities">
+          <EntitySetMapping Name="Country_LU">
+            <EntityTypeMapping TypeName="PDPModel.Country_LU">
+              <MappingFragment StoreEntitySet="Country_LU">
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PestCode_LU">
+            <EntityTypeMapping TypeName="PDPModel.PestCode_LU">
+              <MappingFragment StoreEntitySet="PestCode_LU">
+                <ScalarProperty Name="PESTCODE" ColumnName="PESTCODE" />
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="TESTCLASS" ColumnName="TESTCLASS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SampleDatas">
+            <EntityTypeMapping TypeName="PDPModel.SampleData">
+              <MappingFragment StoreEntitySet="SampleData">
+                <ScalarProperty Name="SAMPLE_PK" ColumnName="SAMPLE_PK" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="YEAR" ColumnName="YEAR" />
+                <ScalarProperty Name="MONTH" ColumnName="MONTH" />
+                <ScalarProperty Name="DAY" ColumnName="DAY" />
+                <ScalarProperty Name="SITE" ColumnName="SITE" />
+                <ScalarProperty Name="COMMOD" ColumnName="COMMOD" />
+                <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+                <ScalarProperty Name="VARIETY" ColumnName="VARIETY" />
+                <ScalarProperty Name="ORIGIN" ColumnName="ORIGIN" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="DISTTYPE" ColumnName="DISTTYPE" />
+                <ScalarProperty Name="COMMTYPE" ColumnName="COMMTYPE" />
+                <ScalarProperty Name="CLAIM" ColumnName="CLAIM" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="GROWST" ColumnName="GROWST" />
+                <ScalarProperty Name="PACKST" ColumnName="PACKST" />
+                <ScalarProperty Name="DISTST" ColumnName="DISTST" />
+                <ScalarProperty Name="ORIGST" ColumnName="ORIGST" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="get_pdp_result_tbl" FunctionName="PDPModel.Store.get_pdp_result_tbl">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PDPModel.get_pdp_result_tbl_Result">
+                <ScalarProperty Name="PDP_Sample_ID" ColumnName="PDP Sample ID" />
+                <ScalarProperty Name="Com" ColumnName="Com" />
+                <ScalarProperty Name="Pest_Code" ColumnName="Pest Code" />
+                <ScalarProperty Name="Pesticide_Name" ColumnName="Pesticide Name" />
+                <ScalarProperty Name="Concen" ColumnName="Concen" />
+                <ScalarProperty Name="LOD" ColumnName="LOD" />
+                <ScalarProperty Name="pp_" ColumnName="pp_" />
+                <ScalarProperty Name="Ann" ColumnName="Ann" />
+                <ScalarProperty Name="Qua" ColumnName="Qua" />
+                <ScalarProperty Name="Mean" ColumnName="Mean" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Variety" ColumnName="Variety" />
+                <ScalarProperty Name="Clm" ColumnName="Clm" />
+                <ScalarProperty Name="Fac" ColumnName="Fac" />
+                <ScalarProperty Name="Origin" ColumnName="Origin" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Tol__ppm_" ColumnName="Tol (ppm)" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Tolerance_LU">
+            <EntityTypeMapping TypeName="PDPModel.Tolerance_LU">
+              <MappingFragment StoreEntitySet="Tolerance_LU">
+                <ScalarProperty Name="TOLUNIT" ColumnName="TOLUNIT" />
+                <ScalarProperty Name="EPATOL" ColumnName="EPATOL" />
+                <ScalarProperty Name="COMMOD" ColumnName="COMMOD" />
+                <ScalarProperty Name="PESTCODE" ColumnName="PESTCODE" />
+                <ScalarProperty Name="PDP_YEAR" ColumnName="PDP_YEAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResultsDatas">
+            <EntityTypeMapping TypeName="PDPModel.ResultsData">
+              <MappingFragment StoreEntitySet="ResultsData">
+                <ScalarProperty Name="DETERMIN" ColumnName="DETERMIN" />
+                <ScalarProperty Name="EXTRACT" ColumnName="EXTRACT" />
+                <ScalarProperty Name="MEAN" ColumnName="MEAN" />
+                <ScalarProperty Name="QUANTITATE" ColumnName="QUANTITATE" />
+                <ScalarProperty Name="ANNOTATE" ColumnName="ANNOTATE" />
+                <ScalarProperty Name="CONFMETHOD2" ColumnName="CONFMETHOD2" />
+                <ScalarProperty Name="CONFMETHOD" ColumnName="CONFMETHOD" />
+                <ScalarProperty Name="CONUNIT" ColumnName="CONUNIT" />
+                <ScalarProperty Name="LOD" ColumnName="LOD" />
+                <ScalarProperty Name="CONCEN" ColumnName="CONCEN" />
+                <ScalarProperty Name="TESTCLASS" ColumnName="TESTCLASS" />
+                <ScalarProperty Name="LAB" ColumnName="LAB" />
+                <ScalarProperty Name="COMMTYPE" ColumnName="COMMTYPE" />
+                <ScalarProperty Name="COMMOD" ColumnName="COMMOD" />
+                <ScalarProperty Name="PDP_YEAR" ColumnName="PDP_YEAR" />
+                <ScalarProperty Name="PESTCODE" ColumnName="PESTCODE" />
+                <ScalarProperty Name="SAMPLE_PK" ColumnName="SAMPLE_PK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="telecom_order">
+            <EntityTypeMapping TypeName="PDPModel.telecom_order">
+              <MappingFragment StoreEntitySet="telecom_order">
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Option" ColumnName="Option" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="Program" ColumnName="Program" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Submitter" ColumnName="Submitter" />
+                <ScalarProperty Name="Fiscal_Year" ColumnName="Fiscal Year" />
+                <ScalarProperty Name="Order_Date" ColumnName="Order Date" />
+                <ScalarProperty Name="Request_Number" ColumnName="Request Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Claim_LU">
+            <EntityTypeMapping TypeName="PDPModel.Claim_LU">
+              <MappingFragment StoreEntitySet="Claim_LU">
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="CLAIM" ColumnName="CLAIM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commod_History_LU">
+            <EntityTypeMapping TypeName="PDPModel.Commod_History_LU">
+              <MappingFragment StoreEntitySet="Commod_History_LU">
+                <ScalarProperty Name="SAMPCNT" ColumnName="SAMPCNT" />
+                <ScalarProperty Name="COMMOD" ColumnName="COMMOD" />
+                <ScalarProperty Name="PDP_YEAR" ColumnName="PDP_YEAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commod_LU">
+            <EntityTypeMapping TypeName="PDPModel.Commod_LU">
+              <MappingFragment StoreEntitySet="Commod_LU">
+                <ScalarProperty Name="DESCRIPT" ColumnName="DESCRIPT" />
+                <ScalarProperty Name="COMMOD" ColumnName="COMMOD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommType_LU">
+            <EntityTypeMapping TypeName="PDPModel.CommType_LU">
+              <MappingFragment StoreEntitySet="CommType_LU">
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="COMMTYPE" ColumnName="COMMTYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfMethod_LU">
+            <EntityTypeMapping TypeName="PDPModel.ConfMethod_LU">
+              <MappingFragment StoreEntitySet="ConfMethod_LU">
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="CONFMETHOD" ColumnName="CONFMETHOD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConUnit_LU">
+            <EntityTypeMapping TypeName="PDPModel.ConUnit_LU">
+              <MappingFragment StoreEntitySet="ConUnit_LU">
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="CONUNIT" ColumnName="CONUNIT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Determin_LU">
+            <EntityTypeMapping TypeName="PDPModel.Determin_LU">
+              <MappingFragment StoreEntitySet="Determin_LU">
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="DETERMIN" ColumnName="DETERMIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DistType_LU">
+            <EntityTypeMapping TypeName="PDPModel.DistType_LU">
+              <MappingFragment StoreEntitySet="DistType_LU">
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="DISTTYPE" ColumnName="DISTTYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Extract_LU">
+            <EntityTypeMapping TypeName="PDPModel.Extract_LU">
+              <MappingFragment StoreEntitySet="Extract_LU">
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="EXTRACT" ColumnName="EXTRACT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lab_LU">
+            <EntityTypeMapping TypeName="PDPModel.Lab_LU">
+              <MappingFragment StoreEntitySet="Lab_LU">
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="LAB" ColumnName="LAB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mean_LU">
+            <EntityTypeMapping TypeName="PDPModel.Mean_LU">
+              <MappingFragment StoreEntitySet="Mean_LU">
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="MEAN" ColumnName="MEAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Origin_LU">
+            <EntityTypeMapping TypeName="PDPModel.Origin_LU">
+              <MappingFragment StoreEntitySet="Origin_LU">
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="ORIGIN" ColumnName="ORIGIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pest_History_LU">
+            <EntityTypeMapping TypeName="PDPModel.Pest_History_LU">
+              <MappingFragment StoreEntitySet="Pest_History_LU">
+                <ScalarProperty Name="COMMODCNT" ColumnName="COMMODCNT" />
+                <ScalarProperty Name="PESTCODE" ColumnName="PESTCODE" />
+                <ScalarProperty Name="PDP_YEAR" ColumnName="PDP_YEAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quantitate_LU">
+            <EntityTypeMapping TypeName="PDPModel.Quantitate_LU">
+              <MappingFragment StoreEntitySet="Quantitate_LU">
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="QUANTITATE" ColumnName="QUANTITATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="State_LU">
+            <EntityTypeMapping TypeName="PDPModel.State_LU">
+              <MappingFragment StoreEntitySet="State_LU">
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestClass_LU">
+            <EntityTypeMapping TypeName="PDPModel.TestClass_LU">
+              <MappingFragment StoreEntitySet="TestClass_LU">
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="TESTCLASS" ColumnName="TESTCLASS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Annotate_LU">
+            <EntityTypeMapping TypeName="PDPModel.Annotate_LU">
+              <MappingFragment StoreEntitySet="Annotate_LU">
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="ANNOTATE" ColumnName="ANNOTATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spCommodityHistory" FunctionName="PDPModel.Store.spCommodityHistory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PDPModel.spCommodityHistory_Result">
+                <ScalarProperty Name="Commodity_Name" ColumnName="Commodity Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="C2014" ColumnName="2014" />
+                <ScalarProperty Name="C2013" ColumnName="2013" />
+                <ScalarProperty Name="C2012" ColumnName="2012" />
+                <ScalarProperty Name="C2011" ColumnName="2011" />
+                <ScalarProperty Name="C2010" ColumnName="2010" />
+                <ScalarProperty Name="C2009" ColumnName="2009" />
+                <ScalarProperty Name="C2008" ColumnName="2008" />
+                <ScalarProperty Name="C2007" ColumnName="2007" />
+                <ScalarProperty Name="C2006" ColumnName="2006" />
+                <ScalarProperty Name="C2005" ColumnName="2005" />
+                <ScalarProperty Name="C2004" ColumnName="2004" />
+                <ScalarProperty Name="C2003" ColumnName="2003" />
+                <ScalarProperty Name="C2002" ColumnName="2002" />
+                <ScalarProperty Name="C2001" ColumnName="2001" />
+                <ScalarProperty Name="C2000" ColumnName="2000" />
+                <ScalarProperty Name="C1999" ColumnName="1999" />
+                <ScalarProperty Name="C1998" ColumnName="1998" />
+                <ScalarProperty Name="C1997" ColumnName="1997" />
+                <ScalarProperty Name="C1996" ColumnName="1996" />
+                <ScalarProperty Name="C1995" ColumnName="1995" />
+                <ScalarProperty Name="C1994" ColumnName="1994" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spPesticideHistory" FunctionName="PDPModel.Store.spPesticideHistory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PDPModel.spPesticideHistory_Result">
+                <ScalarProperty Name="Pesticide_Name" ColumnName="Pesticide Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="C2014" ColumnName="2014" />
+                <ScalarProperty Name="C2013" ColumnName="2013" />
+                <ScalarProperty Name="C2012" ColumnName="2012" />
+                <ScalarProperty Name="C2011" ColumnName="2011" />
+                <ScalarProperty Name="C2010" ColumnName="2010" />
+                <ScalarProperty Name="C2009" ColumnName="2009" />
+                <ScalarProperty Name="C2008" ColumnName="2008" />
+                <ScalarProperty Name="C2007" ColumnName="2007" />
+                <ScalarProperty Name="C2006" ColumnName="2006" />
+                <ScalarProperty Name="C2005" ColumnName="2005" />
+                <ScalarProperty Name="C2004" ColumnName="2004" />
+                <ScalarProperty Name="C2003" ColumnName="2003" />
+                <ScalarProperty Name="C2002" ColumnName="2002" />
+                <ScalarProperty Name="C2001" ColumnName="2001" />
+                <ScalarProperty Name="C2000" ColumnName="2000" />
+                <ScalarProperty Name="C1999" ColumnName="1999" />
+                <ScalarProperty Name="C1998" ColumnName="1998" />
+                <ScalarProperty Name="C1997" ColumnName="1997" />
+                <ScalarProperty Name="C1996" ColumnName="1996" />
+                <ScalarProperty Name="C1995" ColumnName="1995" />
+                <ScalarProperty Name="C1994" ColumnName="1994" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spToleranceLevel" FunctionName="PDPModel.Store.spToleranceLevel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PDPModel.spToleranceLevel_Result">
+                <ScalarProperty Name="Report_Year" ColumnName="Report Year" />
+                <ScalarProperty Name="Pesticide_Code" ColumnName="Pesticide Code" />
+                <ScalarProperty Name="Pesticide_Name" ColumnName="Pesticide Name" />
+                <ScalarProperty Name="Commodity_Code" ColumnName="Commodity Code" />
+                <ScalarProperty Name="Commodity_Name" ColumnName="Commodity Name" />
+                <ScalarProperty Name="EPA_Tolerance_Level" ColumnName="EPA Tolerance Level" />
+                <ScalarProperty Name="Unit_pp_" ColumnName="Unit pp_" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
